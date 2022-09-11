@@ -1,0 +1,20 @@
+<div class="search-bar">
+    <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText placeholder="Search" [(ngModel)]="nameSearch" (keyup)="getCharacterByName()" />
+    </span>
+</div>
+<div class="grid">
+    <div class="col-3" *ngFor="let character of characters">
+        <mat-card>
+            <img class="card-image" src={{character.thumbnail.path}}.{{character.thumbnail.extension}}> 
+            <mat-card-title>{{character.name}}</mat-card-title>
+        </mat-card>
+    </div>
+</div>
+<div class="paginator">
+    <p-paginator [rows]="20" [totalRecords]="data.total" (onPageChange)="paginate($event)"></p-paginator>
+</div>
+ 
+
+ 
